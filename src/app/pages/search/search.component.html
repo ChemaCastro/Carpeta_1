@@ -1,0 +1,16 @@
+<div class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
+      
+  <!-- Para indicar que es una carga dinámica ponemos los corchetes en 
+    routerLink y partimos el resto:
+  ORIGINAL: routerLink="/item/{{ item.cod}}" -->
+  <a *ngFor="let item of productosService.productosFiltrado"
+  [routerLink]="['/item', item.cod ]"
+  class="animated delay-1s fadeIn rk-item ae-masonry__item">
+  <img src="assets/productos/{{ item.url }}.jpg" alt="">
+  <div [routerLink]="['/item', item.cod ]" class="item-meta">
+    <h2>{{ item.titulo }}</h2>
+    <p>{{ item.categoria }}</p>
+  </div>
+</a>
+
+</div>

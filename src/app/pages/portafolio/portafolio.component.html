@@ -31,11 +31,14 @@
 
     <div *ngIf="!productosService.cargando" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
       
-      <a *ngFor="let item of productosService.producto"
-        routerLink="/item" 
+        <!-- Para indicar que es una carga dinámica ponemos los corchetes en 
+          routerLink y partimos el resto:
+        ORIGINAL: routerLink="/item/{{ item.cod}}" -->
+        <a *ngFor="let item of productosService.producto"
+        [routerLink]="['/item', item.cod ]"
         class="animated delay-1s fadeIn rk-item ae-masonry__item">
         <img src="assets/productos/{{ item.url }}.jpg" alt="">
-        <div class="item-meta">
+        <div [routerLink]="['/item', item.cod ]" class="item-meta">
           <h2>{{ item.titulo }}</h2>
           <p>{{ item.categoria }}</p>
         </div>
