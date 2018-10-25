@@ -24,7 +24,7 @@ export class ProductosService {
       this.http.get('https://mi-proyecto-en-angular.firebaseio.com/productos_idx.json')
       .subscribe( (resp: Producto[]) => {
         this.producto = resp;
-        console.log(resp);
+        // console.log(resp);
         // SÓLO para probar que funciona el "loading" ponemos un Timeout...
         // setTimeout(() => {
         this.cargando = false;
